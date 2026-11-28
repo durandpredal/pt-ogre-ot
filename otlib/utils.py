@@ -92,3 +92,22 @@ def plot_2D_transport(a,x,b,y,P):
     ax.set_aspect("equal")
     ax.legend()
     plt.show()
+
+
+
+def plot_hist_marg(hist_marg):
+    idx = np.arange(len(hist_marg[0]))
+    plt.plot(idx, np.log(hist_marg[0]), label='Marginal violation in a')
+    plt.plot(idx, np.log(hist_marg[1]), label='Marginal violation in b')
+    plt.title("Marginal violation of iterate plan")
+    plt.legend()
+    plt.show()
+
+
+def compare_hist_marg(hists_marg, list_eps):
+    for k in range(len(list_eps)):
+        idx = np.arange(len(hists_marg[k]))
+        plt.plot(idx, np.log(hists_marg[k]), label=f"Epsilon = {list_eps[k]}")
+    plt.title("Marginal violation for different epsilon")
+    plt.legend()
+    plt.show()
